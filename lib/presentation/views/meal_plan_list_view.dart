@@ -4,8 +4,13 @@ import 'package:nutrotional_tracking_app/core/theming/assets_data.dart';
 import 'package:nutrotional_tracking_app/presentation/views/widgets/meal_plan_item.dart';
 
 class MealPlanListView extends StatefulWidget {
-  const MealPlanListView({super.key, required this.selectedCategory});
+  const MealPlanListView({
+    super.key,
+    required this.selectedCategory,
+    required this.searchText,
+  });
   final String selectedCategory;
+  final String searchText;
 
   @override
   State<MealPlanListView> createState() => _MealPlanListViewState();
@@ -51,15 +56,38 @@ class _MealPlanListViewState extends State<MealPlanListView> {
     ),
   ];
 
+  // List<MealModel> get filteredMeals {
+  //   if (widget.selectedCategory == "All") {
+  //     return allMeals;
+  //   } else {
+  //     return allMeals
+  //         .where((meal) => meal.category == widget.selectedCategory)
+  //         .toList();
+  //   }
+  // }
+
   List<MealModel> get filteredMeals {
-    if (widget.selectedCategory == "All") {
-      return allMeals;
-    } else {
-      return allMeals
-          .where((meal) => meal.category == widget.selectedCategory)
-          .toList();
+    List<MealModel> filtered =
+        widget.selectedCategory == 'All'
+            ? allMeals
+            : allMeals
+                .where((meal) => meal.category == widget.selectedCategory)
+                .toList();
+
+    if (widget.searchText.isNotEmpty) {
+      filtered =
+          filtered
+              .where(
+                (meal) => meal.title.toLowerCase().startsWith(
+                  widget.searchText.toLowerCase(),
+                ),
+              )
+              .toList();
     }
+
+    return filtered;
   }
+
 
   @override
   Widget build(BuildContext context) {

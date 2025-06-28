@@ -7,9 +7,13 @@ abstract class TextStyles {
     fontSize: 15.sp,
     fontWeight: FontWeightHelper.bold,
   );
-  static TextStyle bold13 = TextStyle(
+  static TextStyle semiBold13 = TextStyle(
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle regular14 = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
   );
   static TextStyle bold11_5 = TextStyle(
     fontSize: 11.5.sp,

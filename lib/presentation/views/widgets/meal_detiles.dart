@@ -17,7 +17,7 @@ class MealDetials extends StatelessWidget {
           TextSpan(
             children: [
               TextSpan(text: "$quantity ", style: TextStyles.bold15),
-              TextSpan(text: "g", style: TextStyles.bold13),
+              TextSpan(text: "g", style: TextStyles.semiBold13),
             ],
           ),
         ),

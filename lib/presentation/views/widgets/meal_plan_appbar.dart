@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nutrotional_tracking_app/core/theming/app_colors.dart';
 
 class MealPlanAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MealPlanAppBar({super.key});
-
+  const MealPlanAppBar({super.key, required this.onPressed});
+  final VoidCallback onPressed;
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
@@ -20,7 +20,7 @@ class MealPlanAppBar extends StatelessWidget implements PreferredSizeWidget {
         Padding(
           padding: const EdgeInsets.only(right: 16),
           child: IconButton(
-            onPressed: () {},
+            onPressed: onPressed,
             icon: const Icon(Icons.search, color: AppColors.mainGreen),
           ),
         ),
