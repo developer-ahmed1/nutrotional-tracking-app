@@ -12,8 +12,9 @@ class MealPlanAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: const Text(
         'Meal Plan',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
       ),
+      backgroundColor: Colors.white,
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 16),
