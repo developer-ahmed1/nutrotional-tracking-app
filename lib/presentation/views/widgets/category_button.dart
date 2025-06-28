@@ -6,9 +6,11 @@ class CategoryButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPressed,
+    required this.isSelected,
   });
   final String title;
   final VoidCallback onPressed;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,9 @@ class CategoryButton extends StatelessWidget {
       style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.white)),
       child: Text(
         title,
-        style: TextStyles.bold15.copyWith(color: Colors.grey.shade500),
+        style: TextStyles.bold15.copyWith(
+          color: isSelected ? Color(0xff18ba7e) : Colors.grey.shade500,
+        ),
       ),
     );
   }

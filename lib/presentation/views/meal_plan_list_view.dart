@@ -3,55 +3,71 @@ import 'package:nutrotional_tracking_app/core/models/meal_model.dart';
 import 'package:nutrotional_tracking_app/core/theming/assets_data.dart';
 import 'package:nutrotional_tracking_app/presentation/views/widgets/meal_plan_item.dart';
 
-class MealPlanListView extends StatelessWidget {
-  const MealPlanListView({super.key});
+class MealPlanListView extends StatefulWidget {
+  const MealPlanListView({super.key, required this.selectedCategory});
+  final String selectedCategory;
 
-  List<MealModel> getMeals() {
-    return [
-      MealModel(
-        title: "Rice Porridge",
-        image: AssetsData.ricePorridge,
-        caloriesQuantity: 97,
-        carbsQuantity: 16,
-        proteinQuantity: 2.5,
-        fatQuantity: 3.1,
-      ),
-      MealModel(
-        title: "Avocado",
-        image: AssetsData.avocado,
-        caloriesQuantity: 160,
-        carbsQuantity: 9,
-        proteinQuantity: 2,
-        fatQuantity: 15,
-      ),
-      MealModel(
-        title: "Chicken",
-        image: AssetsData.chicken,
-        caloriesQuantity: 190,
-        carbsQuantity: 0,
-        proteinQuantity: 16,
-        fatQuantity: 14,
-      ),
-      MealModel(
-        title: "Eggs",
-        image: AssetsData.eggs,
-        caloriesQuantity: 155,
-        carbsQuantity: 3,
-        proteinQuantity: 13,
-        fatQuantity: 4,
-      ),
-    ];
+  @override
+  State<MealPlanListView> createState() => _MealPlanListViewState();
+}
+
+class _MealPlanListViewState extends State<MealPlanListView> {
+  List<MealModel> allMeals = [
+    MealModel(
+      title: "Rice Porridge",
+      image: AssetsData.ricePorridge,
+      caloriesQuantity: 97,
+      carbsQuantity: 16,
+      proteinQuantity: 2.5,
+      fatQuantity: 3.1,
+      category: "Lunch",
+    ),
+    MealModel(
+      title: "Avocado",
+      image: AssetsData.avocado,
+      caloriesQuantity: 160,
+      carbsQuantity: 9,
+      proteinQuantity: 2,
+      fatQuantity: 15,
+      category: 'Dinner',
+    ),
+    MealModel(
+      title: "Chicken",
+      image: AssetsData.chicken,
+      caloriesQuantity: 190,
+      carbsQuantity: 0,
+      proteinQuantity: 16,
+      fatQuantity: 14,
+      category: 'Lunch',
+    ),
+    MealModel(
+      title: "Eggs",
+      image: AssetsData.eggs,
+      caloriesQuantity: 155,
+      carbsQuantity: 3,
+      proteinQuantity: 13,
+      fatQuantity: 4,
+      category: 'Breakfast',
+    ),
+  ];
+
+  List<MealModel> get filteredMeals {
+    if (widget.selectedCategory == "All") {
+      return allMeals;
+    } else {
+      return allMeals
+          .where((meal) => meal.category == widget.selectedCategory)
+          .toList();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: getMeals().length,
+        itemCount: filteredMeals.length,
         itemBuilder: (context, index) {
-          return MealPlanItem(
-            mealModel: getMeals()[index],
-          );
+          return MealPlanItem(mealModel: filteredMeals[index]);
         },
       ),
     );

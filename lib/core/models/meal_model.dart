@@ -5,6 +5,7 @@ class MealModel {
   final num carbsQuantity;
   final num proteinQuantity;
   final num fatQuantity;
+  final String category;
 
   MealModel({
     required this.title,
@@ -13,5 +14,6 @@ class MealModel {
     required this.carbsQuantity,
     required this.proteinQuantity,
     required this.fatQuantity,
+    required this.category,
   });
 }
