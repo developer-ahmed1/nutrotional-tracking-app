@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrotional_tracking_app/core/theming/app_colors.dart';
 
 class ActivityView extends StatelessWidget {
   const ActivityView({super.key});
@@ -14,7 +15,7 @@ class ActivityView extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
       ),
-      backgroundColor: Color(0xfff4f5fa),
+      backgroundColor: AppColors.backgroundColor,
       body: Center(child: Text("Activity View")),
     );
   }

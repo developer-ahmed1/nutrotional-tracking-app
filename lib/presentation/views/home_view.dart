@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrotional_tracking_app/core/theming/app_colors.dart';
 import 'package:nutrotional_tracking_app/core/theming/assets_data.dart';
 import 'package:nutrotional_tracking_app/presentation/views/activity_view.dart';
 import 'package:nutrotional_tracking_app/presentation/views/meal_plan_view.dart';
@@ -46,12 +47,10 @@ class _HomeViewState extends State<HomeView> {
         selectedIndex: _selectedIndex,
         onDestinationSelected: onNavItemTapped,
         backgroundColor: Colors.white,
-        overlayColor: WidgetStatePropertyAll(
-          Color.fromARGB(255, 215, 239, 230),
-        ),
+        overlayColor: WidgetStatePropertyAll(AppColors.lightGreen),
         labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
           if (states.contains(WidgetState.selected)) {
-            return TextStyle(color: Color(0xff18ba7e));
+            return TextStyle(color: AppColors.mainGreen);
           }
           return TextStyle(color: Colors.grey);
         }),
@@ -59,6 +58,8 @@ class _HomeViewState extends State<HomeView> {
         destinations: [
           NavigationDestination(
             icon: NavIcon(
+              height: 32,
+
               assetPath: AssetsData.mealIcon,
               isSelected: _selectedIndex == 0,
             ),
@@ -66,6 +67,7 @@ class _HomeViewState extends State<HomeView> {
           ),
           NavigationDestination(
             icon: NavIcon(
+              height: 28,
               assetPath: AssetsData.activityIcon,
               isSelected: _selectedIndex == 1,
             ),
@@ -73,6 +75,7 @@ class _HomeViewState extends State<HomeView> {
           ),
           NavigationDestination(
             icon: NavIcon(
+              height: 24,
               assetPath: AssetsData.profileIcon,
               isSelected: _selectedIndex == 2,
             ),

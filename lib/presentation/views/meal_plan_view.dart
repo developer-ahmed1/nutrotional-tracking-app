@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrotional_tracking_app/core/theming/app_colors.dart';
 import 'package:nutrotional_tracking_app/presentation/views/meal_plan_list_view.dart';
 import 'package:nutrotional_tracking_app/presentation/views/widgets/category_button.dart';
 import 'package:nutrotional_tracking_app/presentation/views/widgets/meal_plan_appbar.dart';
@@ -22,7 +23,7 @@ class _MealPlanViewState extends State<MealPlanView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MealPlanAppBar(),
-      backgroundColor: Color(0xfff4f5fa),
+      backgroundColor: AppColors.backgroundColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -35,7 +36,8 @@ class _MealPlanViewState extends State<MealPlanView> {
                   title: 'All',
                   onPressed: () {
                     onCategorySelected('All');
-                  }, isSelected: selectedCategory == 'All',
+                  },
+                  isSelected: selectedCategory == 'All',
                 ),
                 CategoryButton(
                   title: 'Breakfast',

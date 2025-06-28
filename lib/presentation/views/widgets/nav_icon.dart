@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nutrotional_tracking_app/core/theming/app_colors.dart';
 
 class NavIcon extends StatelessWidget {
   final String assetPath;
@@ -19,7 +20,7 @@ class NavIcon extends StatelessWidget {
       assetPath,
       height: height,
       colorFilter: ColorFilter.mode(
-        isSelected ? Color(0xff18ba7e) : Colors.grey,
+        isSelected ? AppColors.mainGreen : Colors.grey,
         BlendMode.srcIn,
       ),
     );

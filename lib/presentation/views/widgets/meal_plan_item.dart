@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nutrotional_tracking_app/core/models/meal_model.dart';
+import 'package:nutrotional_tracking_app/core/theming/app_colors.dart';
 import 'package:nutrotional_tracking_app/core/theming/styles.dart';
+import 'package:nutrotional_tracking_app/presentation/views/widgets/meal_detiles.dart';
 
 class MealPlanItem extends StatelessWidget {
   const MealPlanItem({super.key, required this.mealModel});
@@ -14,6 +16,13 @@ class MealPlanItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.lighterShadow, // أسود شفاف (8% شفافية)
+            blurRadius: 8,
+            offset: Offset(0, 4),
+          ),
+        ],
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +70,7 @@ class MealPlanItem extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 40),
-                  child: Divider(color: Colors.grey.shade300,),
+                  child: Divider(color: Colors.grey.shade300),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,31 +92,6 @@ class MealPlanItem extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class MealDetials extends StatelessWidget {
-  const MealDetials({super.key, required this.title, required this.quantity});
-
-  final String title;
-  final num quantity;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("$title: ", style: TextStyle(color: Colors.grey.shade600)),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(text: "$quantity ", style: TextStyles.bold15),
-              TextSpan(text: "g", style: TextStyles.bold13),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
