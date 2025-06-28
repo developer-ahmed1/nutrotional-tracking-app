@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nutrotional_tracking_app/presentation/views/home_view.dart';
 
 void main() {
@@ -11,9 +12,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const HomeView(),
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: const HomeView(),
+      ),
     );
   }
 }
