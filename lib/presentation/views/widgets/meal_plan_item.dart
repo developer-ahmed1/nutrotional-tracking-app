@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nutrotional_tracking_app/core/models/meal_model.dart';
 import 'package:nutrotional_tracking_app/core/theming/app_colors.dart';
 import 'package:nutrotional_tracking_app/core/theming/styles.dart';
+import 'package:nutrotional_tracking_app/presentation/views/widgets/add_meal_button.dart';
 import 'package:nutrotional_tracking_app/presentation/views/widgets/meal_detiles.dart';
 
 class MealPlanItem extends StatelessWidget {
@@ -18,7 +19,7 @@ class MealPlanItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: AppColors.lighterShadow, // أسود شفاف (8% شفافية)
+            color: AppColors.lighterShadow,
             blurRadius: 8,
             offset: Offset(0, 4),
           ),
@@ -49,23 +50,14 @@ class MealPlanItem extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: " kcal",
-                                style: TextStyles.bold11_5,
+                                style: TextStyles.semiBold11_5,
                               ),
                             ],
                           ),
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          "Add",
-                          style: TextStyle(color: Colors.grey.shade600),
-                        ),
-                        SizedBox(width: 8),
-                        Icon(Icons.add_circle, color: Colors.grey.shade400),
-                      ],
-                    ),
+                    AddMealButton(meal: mealModel),
                   ],
                 ),
                 Padding(

@@ -56,16 +56,6 @@ class _MealPlanListViewState extends State<MealPlanListView> {
     ),
   ];
 
-  // List<MealModel> get filteredMeals {
-  //   if (widget.selectedCategory == "All") {
-  //     return allMeals;
-  //   } else {
-  //     return allMeals
-  //         .where((meal) => meal.category == widget.selectedCategory)
-  //         .toList();
-  //   }
-  // }
-
   List<MealModel> get filteredMeals {
     List<MealModel> filtered =
         widget.selectedCategory == 'All'

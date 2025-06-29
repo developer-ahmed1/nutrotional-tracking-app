@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutrotional_tracking_app/core/theming/app_colors.dart';
+import 'package:nutrotional_tracking_app/core/theming/styles.dart';
 
 class MealPlanAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MealPlanAppBar({super.key, required this.onPressed});
@@ -11,10 +12,7 @@ class MealPlanAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      title: const Text(
-        'Meal Plan',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-      ),
+      title: Text('Meal Plan', style: TextStyles.bold18),
       backgroundColor: Colors.white,
       actions: [
         Padding(
