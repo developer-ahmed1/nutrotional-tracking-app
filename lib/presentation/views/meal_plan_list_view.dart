@@ -54,6 +54,15 @@ class _MealPlanListViewState extends State<MealPlanListView> {
       fatQuantity: 4,
       category: 'Breakfast',
     ),
+    MealModel(
+      title: "Pancakes",
+      image: AssetsData.pancakes,
+      caloriesQuantity: 230.7,
+      carbsQuantity: 28,
+      proteinQuantity: 6,
+      fatQuantity: 10,
+      category: 'Breakfast',
+    ),
   ];
 
   List<MealModel> get filteredMeals {
