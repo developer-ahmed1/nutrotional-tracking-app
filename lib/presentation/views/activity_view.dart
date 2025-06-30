@@ -128,7 +128,7 @@ class ActivityView extends StatelessWidget {
     return [
       Text(category, style: TextStyles.bold18),
       const SizedBox(height: 10),
-      ...filteredMeals.map((meal) => MealPlanItem(mealModel: meal)).toList(),
+      ...filteredMeals.map((meal) => MealPlanItem(mealModel: meal)),
       const SizedBox(height: 16),
     ];
   }
