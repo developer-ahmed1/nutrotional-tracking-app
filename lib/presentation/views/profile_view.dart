@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:nutrotional_tracking_app/core/models/user_model.dart';
 import 'package:nutrotional_tracking_app/core/theming/app_colors.dart';
 import 'package:nutrotional_tracking_app/presentation/views/edit_profile_view.dart';
 import 'package:nutrotional_tracking_app/presentation/cubits/cubit/user_profile_cubit.dart';
